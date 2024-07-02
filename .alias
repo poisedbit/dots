@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias zzz="systemctl suspend"
+
+alias n="nano"
+alias v="nvim"
+alias h="helix"
