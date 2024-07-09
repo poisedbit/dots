@@ -19,8 +19,8 @@ return {
                 "jsonls",
                 "tsserver",
                 "lua_ls",
-                "rust_analyzer",
-                "svelte",
+                --"rust_analyzer",
+                -- "svelte",
                 "taplo",
                 "yamlls",
             }
@@ -30,6 +30,7 @@ return {
                 vim.lsp.protocol.make_client_capabilities(),
                 require("cmp_nvim_lsp").default_capabilities()
             )
+
             local lspconfig = require "lspconfig"
 
             local handlers = {
@@ -52,25 +53,36 @@ return {
             }
 
             for _, lsp in ipairs(servers) do
-                local default_handler = handlers[1]
-
-                if handlers[lsp] ~= nil then
+                if handlers[lsp] then
                     handlers[lsp]()
                 else
-                    default_handler(lsp)
+                    handlers[1](lsp)
                 end
             end
 
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
-
             vim.diagnostic.config {
-                virtual_text = false,
+                update_in_insert = true,
+                float = {
+                    focusable = false,
+                    style = "minimal",
+                    border = "rounded",
+                    source = "always",
+                    header = "",
+                    prefix = "",
+                },
             }
+
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
         end,
     },
     {
         "j-hui/fidget.nvim",
         event = "LspAttach",
         config = true,
+    },
+    {
+        "mrcjkb/rustaceanvim",
+        version = "^4",
+        lazy = false, -- This plugin is already lazy
     },
 }

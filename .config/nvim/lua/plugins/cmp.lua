@@ -38,7 +38,7 @@ return {
                     { name = "luasnip" },
                     { name = "buffer" },
                     { name = "path" },
-                    { name = "cmdline" },
+                    -- { name = "cmdline" },
                     { name = "nvim_lua" },
                     { name = "npm" },
                     { name = "crates" },
@@ -58,7 +58,10 @@ return {
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
                     ["<C-,>"] = cmp.mapping.select_prev_item(),
                     ["<C-.>"] = cmp.mapping.select_next_item(),
-                    ["<Tab>"] = cmp.mapping.confirm { select = true },
+                    ["<CR>"] = cmp.mapping.confirm {
+                        behavior = cmp.ConfirmBehavior.Insert,
+                        select = true,
+                    },
                     ["<C-Space>"] = cmp.mapping.complete(),
                 },
                 experimental = {
