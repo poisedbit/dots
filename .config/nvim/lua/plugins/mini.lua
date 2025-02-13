@@ -69,14 +69,34 @@ return {
             },
         },
     },
-    --{ "echasnovski/mini.notify", version = false, config = true },
+    {
+        "echasnovski/mini.notify",
+        version = false,
+        opts = {
+            lsp_progress = { enable = false },
+        },
+        config = function(_, opts)
+            local notify = require "mini.notify"
+
+            notify.setup(opts)
+            vim.notify = notify.make_notify {
+                ERROR = { duration = 5000 },
+                WARN = { duration = 4000 },
+                INFO = { duration = 3000 },
+            }
+        end,
+    },
     {
         "echasnovski/mini.pairs",
         version = false,
         event = "InsertEnter",
         config = true,
     },
-    { "echasnovski/mini.sessions", version = false, config = true },
+    {
+        "echasnovski/mini.sessions",
+        version = false,
+        opts = { directory = "~/.session/" },
+    },
     {
         "echasnovski/mini.starter",
         version = false,
