@@ -19,7 +19,7 @@ return {
                 "jsonls",
                 "tsserver",
                 "lua_ls",
-                --"rust_analyzer",
+                "rust_analyzer",
                 -- "svelte",
                 "taplo",
                 "yamlls",
@@ -45,6 +45,7 @@ return {
                         settings = {
                             Lua = {
                                 workspace = { checkThirdParty = false },
+                                telemetry = { enable = false },
                                 diagnostics = { globals = { "vim" } },
                             },
                         },
@@ -61,28 +62,39 @@ return {
             end
 
             vim.diagnostic.config {
-                update_in_insert = true,
-                float = {
-                    focusable = false,
-                    style = "minimal",
-                    border = "rounded",
-                    source = "always",
-                    header = "",
-                    prefix = "",
+                virtual_text = false,
+                virtual_lines = {
+                    only_current_line = true,
                 },
+                update_in_insert = true,
             }
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
         end,
     },
     {
-        "j-hui/fidget.nvim",
-        event = "LspAttach",
+        "folke/trouble.nvim",
+        lazy = true,
+        event = "VeryLazy",
+        cmd = "Trouble",
+        config = true,
+        keys = {
+            {
+                "<leader>t",
+                "<cmd>Trouble diagnostics focus<cr>",
+                desc = "diagnostics (trouble)",
+            },
+        },
+    },
+    {
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        lazy = true,
+        event = "VeryLazy",
         config = true,
     },
     {
-        "mrcjkb/rustaceanvim",
-        version = "^4",
-        lazy = false, -- This plugin is already lazy
+        "j-hui/fidget.nvim",
+        event = "LspAttach",
+        config = true,
     },
 }
