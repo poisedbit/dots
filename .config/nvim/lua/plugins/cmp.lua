@@ -11,7 +11,14 @@ return {
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "davidsierradz/cmp-conventionalcommits",
-            { "David-Kunz/cmp-npm", config = true },
+            {
+                "David-Kunz/cmp-npm",
+                dependencies = {
+                    "nvim-lua/plenary.nvim",
+                    name = "plenary",
+                },
+                config = true,
+            },
             { "Saecki/crates.nvim", config = true },
             "onsails/lspkind.nvim",
         },
