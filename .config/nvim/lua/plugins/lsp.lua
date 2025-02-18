@@ -17,7 +17,7 @@ return {
                 "cssls",
                 "html",
                 "jsonls",
-                "tsserver",
+                "ts_ls",
                 "lua_ls",
                 "rust_analyzer",
                 -- "svelte",
@@ -30,9 +30,7 @@ return {
                 vim.lsp.protocol.make_client_capabilities(),
                 require("cmp_nvim_lsp").default_capabilities()
             )
-
             local lspconfig = require "lspconfig"
-
             local handlers = {
                 function(server)
                     lspconfig[server].setup {

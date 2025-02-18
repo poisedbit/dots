@@ -37,7 +37,6 @@ opt.fileformat = "unix"
 opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
--- opt.guifont = "SF Mono"
 
 opt.laststatus = 3
 opt.updatetime = 50

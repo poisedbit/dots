@@ -13,7 +13,12 @@ return {
             },
         },
         keys = {
-            { "-", "<cmd>Oil<cr>", noremap = true, desc = "oil" },
+            {
+                "<leader>e",
+                "<cmd>Oil<cr>",
+                noremap = true,
+                desc = "oil",
+            },
         },
     },
 }
