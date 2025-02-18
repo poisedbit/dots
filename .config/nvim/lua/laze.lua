@@ -38,12 +38,12 @@ require("lazy").setup({
                 "zipPlugin",
                 "tutor",
                 "rplugin",
-                --"syntax"
+                "syntax",
                 "synmenu",
                 "optwin",
                 "compiler",
                 "bugreport",
-                -- "ftplugin"
+                "ftplugin",
             },
         },
     },
