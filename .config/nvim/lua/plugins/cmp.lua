@@ -78,6 +78,7 @@ return {
                 },
             }
 
+            --[[
             vim.diagnostic.config {
                 float = {
                     focusable = false,
@@ -88,6 +89,7 @@ return {
                     prefix = "",
                 },
             }
+            --]]
         end,
     },
 }

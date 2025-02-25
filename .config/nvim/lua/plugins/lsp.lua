@@ -20,7 +20,7 @@ return {
                 "ts_ls",
                 "lua_ls",
                 "rust_analyzer",
-                -- "svelte",
+                "svelte",
                 "taplo",
                 "yamlls",
             }
@@ -62,7 +62,7 @@ return {
             vim.diagnostic.config {
                 virtual_text = false,
                 virtual_lines = {
-                    only_current_line = true,
+                    current_line = true,
                 },
                 update_in_insert = true,
             }
@@ -78,7 +78,7 @@ return {
         config = true,
         keys = {
             {
-                "<leader>t",
+                "<leader>d",
                 "<cmd>Trouble diagnostics focus<cr>",
                 desc = "diagnostics (trouble)",
             },
@@ -87,7 +87,7 @@ return {
     {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         lazy = true,
-        event = "VeryLazy",
+        event = "LspAttach",
         config = true,
     },
     {

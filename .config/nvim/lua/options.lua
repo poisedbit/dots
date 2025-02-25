@@ -30,6 +30,8 @@ opt.scrolloff = 8
 opt.signcolumn = "yes:1"
 opt.colorcolumn = "80"
 
+opt.linespace = 5
+
 opt.encoding = "utf-8"
 opt.eol = true
 opt.fileformat = "unix"

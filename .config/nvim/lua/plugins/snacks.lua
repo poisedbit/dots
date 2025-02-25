@@ -17,7 +17,7 @@ return {
         image = { enabled = true },
         input = { enabled = true },
         quickfile = { enabled = true },
-        picker = { enabled = true },
+        picker = { enabled = true, sources = { files = { hidden = true } } },
     },
     keys = {
         {
@@ -48,6 +48,12 @@ return {
             "<cmd>lua Snacks.picker.buffers()<cr>",
             noremap = true,
             desc = "buffers",
+        },
+        {
+            "<leader>t",
+            "<cmd>lua Snacks.terminal.toggle()<cr>",
+            noremap = true,
+            desc = "terminal",
         },
     },
     init = function()
