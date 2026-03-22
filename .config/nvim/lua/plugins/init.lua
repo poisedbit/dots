@@ -89,16 +89,15 @@ return {
             },
         },
     },
+    --[[
     {
         "joshuadanpeterson/typewriter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
-        lazy = true,
         cmd = {
-            "TWDisable",
             "TWEnable",
-            "TWToggle",
+            "TWToggle"
         },
         opts = {
             enable_horizontal_scroll = false,
@@ -107,6 +106,7 @@ return {
             vim.cmd "TWEnable"
         end,
     },
+    --]]
     {
         "mbbill/undotree",
         lazy = true,
