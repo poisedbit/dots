@@ -1,42 +1,4 @@
 return {
-    { "nvim-tree/nvim-web-devicons", lazy = true, config = true },
-    {
-        "mbbill/undotree",
-        lazy = true,
-        cmd = {
-            "UndotreeFocus",
-            "UndotreeHide",
-            "UndotreeShow",
-            "UndotreeToggle",
-        },
-    },
-    { "gbprod/cutlass.nvim", opts = { cut_key = "x", override_del = true } },
-    {
-        "kosayoda/nvim-lightbulb",
-        event = { "BufReadPre", "BufNewFile" },
-        opts = {
-            autocmd = { enabled = true },
-            sign = { enabled = true },
-            number = { enabled = true },
-        },
-    },
-    {
-        "HiPhish/rainbow-delimiters.nvim",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
-        event = { "BufNewFile", "BufReadPost", "BufWritePre" },
-        main = "rainbow-delimiters.setup",
-        opts = {
-            highlight = {
-                "RainbowDelimiterCyan",
-                "RainbowDelimiterViolet",
-                "RainbowDelimiterGreen",
-                "RainbowDelimiterOrange",
-                "RainbowDelimiterBlue",
-                "RainbowDelimiterYellow",
-                --"RainbowDelimiterRed",
-            },
-        },
-    },
     {
         "utilyre/barbecue.nvim",
         name = "barbecue",
@@ -46,24 +8,6 @@ return {
         },
         event = { "BufNewFile", "BufReadPost", "BufWritePre" },
         config = true,
-    },
-    {
-        "joshuadanpeterson/typewriter",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        lazy = true,
-        cmd = {
-            "TWDisable",
-            "TWEnable",
-            "TWToggle",
-        },
-        opts = {
-            enable_horizontal_scroll = false,
-        },
-        init = function()
-            vim.cmd "TWEnable"
-        end,
     },
     {
 
@@ -90,5 +34,92 @@ return {
                 desc = "game of life",
             },
         },
+    },
+    { "gbprod/cutlass.nvim",         opts = { cut_key = "x", override_del = true } },
+    {
+        "kosayoda/nvim-lightbulb",
+        event = { "BufReadPre", "BufNewFile" },
+        opts = {
+            autocmd = { enabled = true },
+            sign = { enabled = true },
+            number = { enabled = true },
+        },
+    },
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+            "hrsh7th/cmp-nvim-lsp",
+        },
+        event = {
+            "BufNewFile",
+            "BufReadPre",
+            "BufWritePre",
+        },
+    },
+    { "nvim-tree/nvim-web-devicons", lazy = true,                                  config = true },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        event = { "BufNewFile", "BufReadPost", "BufWritePre" },
+        main = "rainbow-delimiters.setup",
+        opts = {
+            highlight = {
+                "RainbowDelimiterCyan",
+                "RainbowDelimiterViolet",
+                "RainbowDelimiterGreen",
+                "RainbowDelimiterOrange",
+                "RainbowDelimiterBlue",
+                "RainbowDelimiterYellow",
+                --"RainbowDelimiterRed",
+            },
+        },
+    },
+    {
+        "folke/trouble.nvim",
+        lazy = true,
+        event = "VeryLazy",
+        cmd = "Trouble",
+        config = true,
+        keys = {
+            {
+                "<leader>d",
+                "<cmd>Trouble diagnostics focus<cr>",
+                desc = "diagnostics (trouble)",
+            },
+        },
+    },
+    {
+        "joshuadanpeterson/typewriter",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        lazy = true,
+        cmd = {
+            "TWDisable",
+            "TWEnable",
+            "TWToggle",
+        },
+        opts = {
+            enable_horizontal_scroll = false,
+        },
+        init = function()
+            vim.cmd "TWEnable"
+        end,
+    },
+    {
+        "mbbill/undotree",
+        lazy = true,
+        cmd = {
+            "UndotreeFocus",
+            "UndotreeHide",
+            "UndotreeShow",
+            "UndotreeToggle",
+        },
+    },
+    {
+        "j-hui/fidget.nvim",
+        event = "LspAttach",
+        config = true,
     },
 }

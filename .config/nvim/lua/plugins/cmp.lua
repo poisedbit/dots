@@ -31,7 +31,7 @@ return {
             )
 
             local cmp = require "cmp"
-            local defaults = require "cmp.config.default"()
+            local defaults = require "cmp.config.default" ()
 
             cmp.setup {
                 snippet = {
@@ -40,7 +40,6 @@ return {
                     end,
                 },
                 sources = cmp.config.sources {
-
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     { name = "buffer" },
@@ -77,19 +76,6 @@ return {
                     },
                 },
             }
-
-            --[[
-            vim.diagnostic.config {
-                float = {
-                    focusable = false,
-                    style = "minimal",
-                    border = "rounded",
-                    source = "always",
-                    header = "",
-                    prefix = "",
-                },
-            }
-            --]]
         end,
     },
 }
